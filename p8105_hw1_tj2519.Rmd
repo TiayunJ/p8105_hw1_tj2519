@@ -23,12 +23,22 @@ end_day = with(problem1_df, max(day))
 ```
 The installed dataset contains variables *`r variable_name`*; it 
 contains *`r nrow(problem1_df)`* rows and *`r ncol(problem1_df)`* columns. The
-mean temperature is *`r round(mean_temp, digits = 2)`*. 
+mean temperature in the reported days is *`r round(mean_temp, digits = 2)`*. 
 **Additonal information**: The data is collected in the year *`r unique(pull(problem1_df, year))`* in *`r unique(pull(problem1_df, origin))`* from
 day *`r start_day`* to *`r end_day`*.
 
+## part 2 - make a scatterplot plot
+```{r message = FALSE}
+ggplot(problem1_df, aes(x = time_hour, y = temp, colour = humid)) + geom_point()
 
-## part 2 - 
+ggsave("problem1_scatterplot.pdf")
+```
+Describe the pattern of the plot: the temperature increases in general as time
+goes, even though it fluctuates during the period of data collection.The humid
+level also tends to increase (but also fluctuates).
+
+
+
 
 
 
