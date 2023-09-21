@@ -17,15 +17,21 @@ problem1_df = early_january_weather
 ## part 1 - description of the dataset (partial code and dataset description)
 ```{r}
 variable_name = c(names(problem1_df))
+num_row = nrow(problem1_df)
+num_col = ncol(problem1_df)
 mean_temp = mean(pull(problem1_df, temp))
+
+data_year = unique(pull(problem1_df, year))
+data_site = unique(pull(problem1_df, origin))
+
 start_day = with(problem1_df, min(day))
 end_day = with(problem1_df, max(day))
 ```
 The installed dataset contains variables *`r variable_name`*; it 
-contains *`r nrow(problem1_df)`* rows and *`r ncol(problem1_df)`* columns. The
+contains *`r num_row`* rows and *`r num_col`* columns. The
 mean temperature in the reported days is *`r round(mean_temp, digits = 2)`*. 
-**Additonal information**: The data is collected in the year *`r unique(pull(problem1_df, year))`* in *`r unique(pull(problem1_df, origin))`* from
-day *`r start_day`* to *`r end_day`*.
+**Additonal information**: The data is collected in the year *`r data_year`* in 
+*`r data_site`* from day *`r start_day`* to *`r end_day`*.
 
 ## part 2 - make a scatterplot plot
 ```{r message = FALSE}
