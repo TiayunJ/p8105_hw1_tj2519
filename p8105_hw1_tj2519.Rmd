@@ -29,7 +29,7 @@ end_day = with(problem1_df, max(day))
 The installed dataset contains variables *`r variable_name`*; it 
 contains *`r num_row`* rows and *`r num_col`* columns. The
 mean temperature in the reported days is *`r round(mean_temp, digits = 2)`*. 
-**Additonal information**: The data is collected in the year *`r data_year`* in 
+**Additional information**: The data is collected in the year *`r data_year`* in 
 *`r data_site`* from day *`r start_day`* to *`r end_day`*.
 
 ## part 2 - make a scatterplot plot
@@ -67,7 +67,7 @@ When we try to take the mean of each variable, we can take the mean of the numer
 and the logical variable. We cannot take the mean of a character or a factor vector.
 
 ## part 2 - apply the as.numeric function to the logical, character, and factor variables
-```{r results = 'hide'}
+```{r results = 'hide', warning = FALSE}
 as.numeric(pull(problem2_df, norm_samp_log))
 as.numeric(pull(problem2_df, vec_char))
 as.numeric(pull(problem2_df, fac_char))
