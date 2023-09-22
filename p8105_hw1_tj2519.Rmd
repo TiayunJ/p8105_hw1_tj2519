@@ -45,7 +45,7 @@ level also tends to increase (but also fluctuates).
 
 
 # Problem 2
-## part 1 - create a dataframe and try to take the mean of each vector
+## part 1 - create a dataframe and try to take the mean of each variable
 ```{r}
 problem2_df = tibble(
   norm_sample = rnorm(10),
@@ -60,10 +60,24 @@ mean(pull(problem2_df, norm_sample))
 mean(pull(problem2_df, norm_samp_log))
 mean(pull(problem2_df, vec_char))
 mean(pull(problem2_df, fac_char))
+
+
 ```
+When we try to take the mean of each variable, we can take the mean of the numeric
+and the logical variable. We cannot take the mean of a character or a factor vector.
 
-
-
+## part 2 - apply the as.numeric function to the logical, character, and factor variables
+```{r results = 'hide'}
+as.numeric(pull(problem2_df, norm_samp_log))
+as.numeric(pull(problem2_df, vec_char))
+as.numeric(pull(problem2_df, fac_char))
+```
+We can return numeric values for the logical and factor vector, but "NA" will
+be returned for the character vector, and that might be the reason why we cannot
+take the mean of a character variable. As for the factor vector, even though 
+numeric values are returned after **as.numeric** function is returned, we could 
+not calculate the mean, that might because the numeric values returned for 
+the factor 'levels' do not have a 'meaning'.
 
 
 
